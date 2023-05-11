@@ -14,17 +14,7 @@ public class Main {
     public static class MyApp implements QuarkusApplication {
         @Override
         public int run(String... args) throws Exception {
-            new Thread(() -> {
-                // todo this is soooo dirty...
-                // ... but it works!
-                try {
-                    Thread.sleep(2_000);
-                } catch (InterruptedException e) {
-                    throw new RuntimeException(e);
-                }
-                int port = 9000; // default
-                System.out.printf("1|1|tcp|localhost:%d|grpc%n", port);
-            }).start();
+            System.out.printf("org.example.Main.MyApp.run called.");
 
             Quarkus.waitForExit();
 
